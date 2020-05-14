@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "An application that generates an HTML webpage that displays summaries of each person on a team. This information is gathered via the command-line.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bskutivan/team-profile-generator.git"
+  },
+  "author": "Brandon Kutivan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bskutivan/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/bskutivan/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0",
+    "jest": "^26.0.1"
+  }
+}
