@@ -1,6 +1,7 @@
 const inquirer = require("inquirer")
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern');
 
 // array to collect team members as they are generated throughout prompting
 
@@ -194,7 +195,69 @@ function newEngineer () {
 }
 
 function newIntern () {
-    
+    inquirer.prompt([
+        {
+            type:'input',
+            name:'name',
+            message: 'What is their name?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter their name.');
+                    return false;
+                }
+            }
+        },
+        {
+            type:'input',
+            name:'id',
+            message:'What is their employee id?',
+            validate: idInput => {
+                if (idInput > 0) {
+                    return true;
+                } else {
+                    console.log('Please enter their employee number.');
+                    return false;
+                }
+            }
+        },
+        {
+            type:'input',
+            name:'email',
+            message:'What is their email?',
+            validate: emailInput => {
+                if (emailInput.includes("@") && emailInput.includes(".com")) {
+                    return true;
+                } else {
+                    console.log("Please input their email. It must include '@' and '.com'.");
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'What school are they attending?',
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+    ]).then((answers) => {
+        const {name, id, email, school} = answers
+        const intern = new Intern(name, id, email, school);
+        
+        // push the new manager object to team array for card generation
+        team.push(intern);
+        console.log(intern);
+
+        // initiate next set of inquirer prompts that determine what role of employee is being given
+        newEmployeesPrompt();
+    })
 }
 
 initializePrompt()
