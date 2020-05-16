@@ -6,28 +6,24 @@ function initializePrompt() {
         {
             type:'input',
             name:'name',
-            message: 'What is the employees name?'
+            message: 'Who is the manager of this team?'
         },
         {
             type:'input',
             name:'id',
-            message:'What is the employees id?'
+            message:'What is their employee id?'
         },
         {
             type:'input',
             name:'email',
-            message:'What is the employees email?'
+            message:'What is their email?'
         },
         {
-            type:'list',
-            name:'role',
-            message:'What is the employees role?',
-            choices:['Manager', 'Engineer', 'Intern']
-        },
-
-    ]).then(answers => {
-        return answers
-    });
+            type:'input',
+            name:'officeNumber',
+            message:'What is their office number?'
+        }
+    ])
 
 };
 
