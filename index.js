@@ -1,11 +1,15 @@
 const inquirer = require("inquirer")
 const Manager = require('./lib/Manager')
+const Engineer = require('./lib/Engineer')
 
 // array to collect team members as they are generated throughout prompting
 
 const team = [];
 
-// prompts broken up into two functions with logic for full app below prompt functions
+// prompts broken up into multiple functions
+// initial prompt -> newEmployeePrompt 
+// newEmployeePrompt -> Engineer/Intern/WriteFile based on input.
+// Engineer and Intern prompts will loop if more employees needed.
 
 function initializePrompt() {
 
@@ -102,18 +106,95 @@ function newEmployeesPrompt() {
         if (choice === "Engineer") {
             // prompt for Engineer
             console.log('you chose engineer');
+
+            newEngineer();
         } else if (choice === "Intern") {
             // prompt for Intern
             console.log('you chose intern');
+
+            newIntern();
         } else if (choice === "Nobody left. Build the team!") {
             // write the file
             console.log('you chose to write that file!');
+
+            //writeFile();
         }
 
     })
-}        console.log(answers);
+}
 
+//Engineer Prompt function
 
-// logic execution starts here
+function newEngineer () {
+    
+    inquirer.prompt([
+        {
+            type:'input',
+            name:'name',
+            message: 'What is their name?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter their name.');
+                    return false;
+                }
+            }
+        },
+        {
+            type:'input',
+            name:'id',
+            message:'What is their employee id?',
+            validate: idInput => {
+                if (idInput > 0) {
+                    return true;
+                } else {
+                    console.log('Please enter their employee number.');
+                    return false;
+                }
+            }
+        },
+        {
+            type:'input',
+            name:'email',
+            message:'What is their email?',
+            validate: emailInput => {
+                if (emailInput.includes("@") && emailInput.includes(".com")) {
+                    return true;
+                } else {
+                    console.log("Please input their email. It must include '@' and '.com'.");
+                    return false;
+                }
+            }
+        },
+        {
+            type:'input',
+            name:'gitHub',
+            message: 'What is their github username?',
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log('Please input their github username.');
+                    return false;
+                }
+            }
+                
+        },
+    ]).then((answers) => {
+        const {name, id, email, gitHub} = answers
+        const engineer = new Engineer(name, id, email, gitHub);
+        
+        // push the new manager object to team array for card generation
+        team.push(engineer);
+
+        // initiate next set of inquirer prompts that determine what role of employee is being given
+        newEmployeesPrompt();
+    })
+}
+
+function newIntern () {
+    
+}
 
 initializePrompt()
