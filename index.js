@@ -63,13 +63,17 @@ function initializePrompt() {
                 }
             }
         }
-    ])
+    ]).then((answers) => {
+        const {name, id, email, officeNumber} = answers
+        const manager = new Manager(name, id, email, officeNumber);
+
+        
+        console.log(manager);
+    })
 };
 
-const employeesPrompt = teamData => {
-    if (!teamData.employees) {
-        teamData.employees = [];
-    }
+function newEmployeesPrompt() {
+    
     return inquirer.prompt([
         {
             type:'list',
@@ -161,34 +165,3 @@ const employeesPrompt = teamData => {
 // logic execution starts here
 
 initializePrompt()
-    .then(employeesPrompt)
-    .then(teamData => {
-        // prompt answers broken up by manager and employee
-
-        const managerData = [{
-            name: teamData.name, 
-            id: teamData.id, 
-            email: teamData.email, 
-            officeNumber: teamData.officeNumber
-        }];
-
-        console.log(managerData);
-
-        const manager = new Manager(managerData);
-
-        console.log(manager);
-
-        const employeeArr = teamData.employees;
-
-        employeeArr.forEach( object => {
-            console.log(object);
-            if (object.role === 'Engineer') {
-                console.log("engineer read!");
-            } else {
-                console.log('must be an intern');
-            }
-        });
-
-    }).catch(err => {
-        console.log(err);
-    });
