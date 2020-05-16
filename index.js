@@ -1,4 +1,8 @@
 const inquirer = require("inquirer")
+const Manager = require('./lib/Manager')
+
+
+// prompts broken up into two functions with logic for full app below prompt functions
 
 function initializePrompt() {
 
@@ -154,8 +158,37 @@ const employeesPrompt = teamData => {
     });
 }
 
+// logic execution starts here
+
 initializePrompt()
     .then(employeesPrompt)
     .then(teamData => {
-        console.log(teamData);
-    })
+        // prompt answers broken up by manager and employee
+
+        const managerData = [{
+            name: teamData.name, 
+            id: teamData.id, 
+            email: teamData.email, 
+            officeNumber: teamData.officeNumber
+        }];
+
+        console.log(managerData);
+
+        const manager = new Manager(managerData);
+
+        console.log(manager);
+
+        const employeeArr = teamData.employees;
+
+        employeeArr.forEach( object => {
+            console.log(object);
+            if (object.role === 'Engineer') {
+                console.log("engineer read!");
+            } else {
+                console.log('must be an intern');
+            }
+        });
+
+    }).catch(err => {
+        console.log(err);
+    });
