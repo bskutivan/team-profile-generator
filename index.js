@@ -111,7 +111,8 @@ function newEmployeesPrompt() {
         }
 
     })
-}
+}        console.log(answers);
+
 
 // logic execution starts here
 
