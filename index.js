@@ -3,6 +3,7 @@ const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const generateHTML = require('./lib/generateHTML');
+const fs = require('fs')
 
 // array to collect team members as they are generated throughout prompting
 
@@ -266,7 +267,12 @@ function newIntern () {
 // Write file function
 
 function writeFile(team) {
-    const test = generateHTML(team);
+    const completedHTMLMarkup = generateHTML(team);
+
+    fs.writeFile('./dist/index.html', completedHTMLMarkup, err => {
+        if(err) throw new Error(err);
+        console.log("Your team's page is waiting for you in the dist folder!");
+    })
 }
 
 initializePrompt()
