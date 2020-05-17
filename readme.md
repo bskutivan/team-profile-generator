@@ -13,21 +13,25 @@
   ## Installation 
   Install this project by downloading the files off gitHub and running it in your local node environment.
   ## User Story 
-  GIVEN a command-line application that accepts user input<br />
-  WHEN I am prompted for information about my application repository<br />
-  THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions<br />
-  WHEN I enter my project title<br />
-  THEN this is displayed as the title of the README<br />
-  WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions<br />
-  THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests<br />
-  WHEN I choose a license for my application from a list of options<br />
-  THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under<br />
-  WHEN I enter my GitHub username<br />
-  THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile<br />
-  WHEN I enter my email address<br />
-  THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions<br />
-  WHEN I click on the links in the Table of Contents<br />
-  THEN I am taken to the corresponding section of the README<br />
+  
+GIVEN a command-line application that accepts user input <br />
+WHEN I am prompted for my team members and their information <br />
+THEN an HTML file is generated that displays a nicely formatted team roster based on user input <br />
+WHEN I click on an email address in the HTML <br />
+THEN my default email program opens and populates the TO field of the email with the address <br />
+WHEN I click on the GitHub username <br />
+THEN that GitHub profile opens in a new tab <br />
+WHEN I start the application <br />
+THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number <br />
+WHEN I enter the team manager’s name, employee ID, email address, and office number <br />
+THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team <br />
+WHEN I select the engineer option <br />
+THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu <br />
+WHEN I select the intern option <br />
+THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu <br />
+WHEN I decide to finish building my team <br />
+THEN I exit the application, and the HTML is generated <br />
+  
   ## Usage
   Feel free to use this project should you see it fit for your needs.
    
