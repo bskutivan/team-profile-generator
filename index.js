@@ -119,7 +119,7 @@ function newEmployeesPrompt() {
             // write the file
             console.log('you chose to write that file!');
 
-            //writeFile();
+            writeFile(team);
         }
 
     })
@@ -195,6 +195,8 @@ function newEngineer () {
     })
 }
 
+// Intern prompt function
+
 function newIntern () {
     inquirer.prompt([
         {
@@ -259,6 +261,12 @@ function newIntern () {
         // initiate next set of inquirer prompts that determine what role of employee is being given
         newEmployeesPrompt();
     })
+}
+
+// Write file function
+
+function writeFile(team) {
+    const test = generateHTML(team);
 }
 
 initializePrompt()
