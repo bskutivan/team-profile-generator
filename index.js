@@ -108,17 +108,14 @@ function newEmployeesPrompt() {
         console.log(choice);
         if (choice === "Engineer") {
             // prompt for Engineer
-            console.log('you chose engineer');
 
             newEngineer();
         } else if (choice === "Intern") {
             // prompt for Intern
-            console.log('you chose intern');
 
             newIntern();
         } else if (choice === "Nobody left. Build the team!") {
             // write the file
-            console.log('you chose to write that file!');
 
             writeFile(team);
         }
@@ -257,7 +254,6 @@ function newIntern () {
         
         // push the new manager object to team array for card generation
         team.push(intern);
-        console.log(intern);
 
         // initiate next set of inquirer prompts that determine what role of employee is being given
         newEmployeesPrompt();
