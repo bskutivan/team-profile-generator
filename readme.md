@@ -10,6 +10,7 @@
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
+  * [Screenshots](#screenshots)
   ## Installation 
   Install this project by downloading the files off gitHub and running it in your local node environment.
   ## User Story 
@@ -42,6 +43,11 @@ THEN I exit the application, and the HTML is generated <br />
   ## Tests
   This project was tested using jest with tests still available in the tests folder.
   The video on how to use this application is included here: 
-  [Walk-through Video]
+  (https://drive.google.com/file/d/1OUgnOplW81DP-ivNLpWPlWiNS8kiimv-/view)
   ## Questions
   If you have any questions about the repository, contact me directly at bskutivan@gmail.com. You can find more of my work at https://github.com/bskutivan.
+  ## Screenshots
+  ![](https://github.com/bskutivan/team-profile-generator/blob/master/images/screenshot1.png)
+  ![](https://github.com/bskutivan/team-profile-generator/blob/master/images/screenshot2.png)
+  ![](https://github.com/bskutivan/team-profile-generator/blob/master/images/screenshot3.png)
+  ![](https://github.com/bskutivan/team-profile-generator/blob/master/images/screenshot4.png)
